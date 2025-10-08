@@ -1,0 +1,830 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="A comprehensive questionnaire tool to help researchers structure and write effective conference rebuttals based on Devi Parikh's guide.">
+    <meta name="keywords"
+        content="rebuttal, conference review, academic writing, paper review, questionnaire">
+    <meta name="author" content="Rebuttal Planner Tool">
+
+    <!-- Open Graph / Social Media -->
+    <meta property="og:title" content="Hybrid Rebuttal Planner Questionnaire">
+    <meta property="og:description"
+        content="A structured             .progress-container,
+            .toc-container,
+            .notification,
+            button,
+            .add-item-button,
+            .remove-item-button,
+            .nav-buttons,
+            .export-dropdown-content {
+                display: none !important;
+            }tep questionnaire for writing conference rebuttals inspired by Devi Parikh's guide.">
+    <meta property="og:type" content="website">
+
+    <title>Hybrid Rebuttal Planner</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            color: #333;
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            background-color: #f5f5f5;
+        }
+
+        h1,
+        h2,
+        h3 {
+            color: #2c3e50;
+        }
+
+        .intro-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .intro-section h1 {
+            color: white;
+            margin-top: 0;
+        }
+
+        .intro-section p {
+            font-size: 1.1em;
+            margin-bottom: 15px;
+        }
+
+        .intro-button {
+            background-color: white;
+            color: #667eea;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            margin-top: 10px;
+            transition: transform 0.2s;
+        }
+
+        .intro-button:hover {
+            transform: scale(1.05);
+        }
+
+        .paper-title-container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .paper-title-label {
+            font-weight: bold;
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+
+        #paper-title {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #ddd;
+            border-radius: 6px;
+            font-size: 18px;
+            font-weight: bold;
+            box-sizing: border-box;
+            transition: border-color 0.3s;
+        }
+
+        #paper-title:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        .section {
+            margin-bottom: 40px;
+            padding: 30px;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            background-color: white;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            scroll-margin-top: 100px;
+        }
+
+        .section h2 {
+            margin-top: 0;
+            color: #667eea;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 15px;
+            font-size: 24px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .section-number {
+            background-color: #667eea;
+            color: white;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .section-instructions {
+            background-color: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 4px;
+            font-style: italic;
+        }
+
+        .question {
+            margin-bottom: 25px;
+        }
+
+        .question-text {
+            font-weight: bold;
+            margin-bottom: 10px;
+            font-size: 15px;
+            color: #2c3e50;
+        }
+
+        textarea,
+        input[type="text"],
+        input[type="number"] {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-family: inherit;
+            font-size: 14px;
+            box-sizing: border-box;
+            max-width: 100%;
+            transition: border-color 0.3s;
+        }
+
+        textarea {
+            min-height: 100px;
+            resize: vertical;
+            overflow-x: auto;
+        }
+
+        textarea:focus,
+        input[type="text"]:focus,
+        input[type="number"]:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        textarea.textarea-empty {
+            background-color: #fff5f5;
+            border-color: #ffcdd2;
+        }
+
+        select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 14px;
+            box-sizing: border-box;
+            background-color: white;
+            cursor: pointer;
+        }
+
+        .nav-buttons {
+            display: none;
+        }
+
+        button {
+            padding: 12px 20px;
+            background-color: #667eea;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #5568d3;
+        }
+
+        button:disabled {
+            background-color: #ccc;
+            cursor: not-allowed;
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        /* Export Dropdown */
+        .export-dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .export-dropdown-content {
+            display: none;
+            position: absolute;
+            right: 0;
+            background-color: white;
+            min-width: 200px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+            border-radius: 6px;
+            overflow: hidden;
+            margin-top: 5px;
+        }
+
+        .export-dropdown-content a {
+            color: #333;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            transition: background-color 0.3s;
+        }
+
+        .export-dropdown-content a:hover {
+            background-color: #f1f1f1;
+        }
+
+        .export-dropdown:hover .export-dropdown-content {
+            display: block;
+        }
+
+        .export-dropdown:hover #export-button {
+            background-color: #229954;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .status-bar {
+            background-color: white;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .status-info {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            flex: 1;
+        }
+
+        /* Progress Bar Styles */
+        .progress-container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .progress-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .progress-title {
+            font-size: 18px;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+
+        .progress-stats {
+            font-size: 14px;
+            color: #667eea;
+            font-weight: bold;
+        }
+
+        .overall-progress-bar {
+            width: 100%;
+            height: 30px;
+            background-color: #e0e0e0;
+            border-radius: 15px;
+            overflow: hidden;
+            position: relative;
+            box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .overall-progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+            border-radius: 15px;
+            transition: width 0.5s ease;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            padding-right: 10px;
+            position: relative;
+        }
+
+        .overall-progress-fill::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            animation: shimmer 2s infinite;
+        }
+
+        @keyframes shimmer {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+
+        .progress-percentage {
+            color: white;
+            font-weight: bold;
+            font-size: 14px;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+            z-index: 1;
+        }
+
+        .sections-progress {
+            margin-top: 20px;
+        }
+
+        .sections-progress-title {
+            font-size: 16px;
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .toggle-sections {
+            background: none;
+            border: none;
+            color: #667eea;
+            cursor: pointer;
+            font-size: 14px;
+            padding: 5px 10px;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+
+        .toggle-sections:hover {
+            background-color: #f0f0f0;
+        }
+
+        .section-progress-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 12px;
+            gap: 15px;
+        }
+
+        .section-progress-label {
+            min-width: 200px;
+            font-size: 14px;
+            color: #555;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .section-progress-number {
+            background-color: #667eea;
+            color: white;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+
+        .section-progress-bar {
+            flex: 1;
+            height: 20px;
+            background-color: #e0e0e0;
+            border-radius: 10px;
+            overflow: hidden;
+            position: relative;
+            box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        .section-progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #3498db 0%, #2ecc71 100%);
+            border-radius: 10px;
+            transition: width 0.4s ease;
+            position: relative;
+        }
+
+        .section-progress-text {
+            min-width: 60px;
+            text-align: right;
+            font-size: 13px;
+            color: #666;
+            font-weight: 600;
+        }
+
+        .section-complete {
+            background: linear-gradient(90deg, #2ecc71 0%, #27ae60 100%);
+        }
+
+        .section-progress-fill.section-complete::before {
+            content: '✓';
+            position: absolute;
+            right: 5px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: white;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        #sections-progress-list {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+
+        #sections-progress-list.expanded {
+            max-height: 1000px;
+        }
+
+        .questionnaire-controls {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        #questionnaire-select {
+            min-width: 250px;
+            max-width: 400px;
+        }
+
+        .export-button {
+            background-color: #27ae60;
+        }
+
+        .export-button:hover {
+            background-color: #229954;
+        }
+
+        .delete-button {
+            background-color: #e74c3c;
+        }
+
+        .delete-button:hover {
+            background-color: #c0392b;
+        }
+
+        .notification {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #2ecc71;
+            color: white;
+            padding: 15px 25px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            opacity: 0;
+            transition: opacity 0.3s;
+            z-index: 1000;
+        }
+
+        .notification.show {
+            opacity: 1;
+        }
+
+        .checklist {
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+        }
+
+        .checklist-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 12px;
+            padding: 10px;
+            background-color: white;
+            border-radius: 4px;
+        }
+
+        .checklist-item input[type="checkbox"] {
+            margin-right: 12px;
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+        }
+
+        .checklist-item label {
+            cursor: pointer;
+            flex: 1;
+        }
+
+        .repeatable-section {
+            border: 2px dashed #ddd;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            background-color: #fafafa;
+        }
+
+        .repeatable-item {
+            background-color: white;
+            padding: 20px;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+            position: relative;
+        }
+
+        .repeatable-item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .add-item-button {
+            background-color: #3498db;
+            margin-top: 10px;
+        }
+
+        .add-item-button:hover {
+            background-color: #2980b9;
+        }
+
+        .remove-item-button {
+            background-color: #e74c3c;
+            padding: 8px 16px;
+            font-size: 14px;
+        }
+
+        .remove-item-button:hover {
+            background-color: #c0392b;
+        }
+
+        /* Table of Contents / Quick Navigation */
+        .toc-container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .toc-container h3 {
+            margin-top: 0;
+            color: #667eea;
+        }
+
+        .toc-list {
+            list-style: none;
+            padding: 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 10px;
+        }
+
+        .toc-list li {
+            padding: 0;
+        }
+
+        .toc-list a {
+            display: block;
+            padding: 12px 15px;
+            background-color: #f5f5f5;
+            border-radius: 6px;
+            text-decoration: none;
+            color: #333;
+            transition: all 0.3s;
+            border-left: 4px solid #667eea;
+        }
+
+        .toc-list a:hover {
+            background-color: #667eea;
+            color: white;
+            transform: translateX(5px);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .status-bar {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .status-info {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .questionnaire-controls {
+                flex-direction: column;
+            }
+
+            #questionnaire-select {
+                width: 100%;
+                max-width: 100%;
+            }
+
+            .action-buttons {
+                width: 100%;
+                justify-content: space-between;
+            }
+
+            .toc-list {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Print styles for PDF export */
+        @media print {
+            body {
+                background-color: white;
+                max-width: 100%;
+                padding: 0;
+                margin: 0;
+            }
+
+            .intro-section,
+            .status-bar,
+            .paper-title-container,
+            .toc-container,
+            .notification,
+            button,
+            .add-item-button,
+            .remove-item-button,
+            .nav-buttons {
+                display: none !important;
+            }
+
+            .section {
+                page-break-inside: avoid;
+                break-inside: avoid;
+                margin-bottom: 30px;
+                border: 1px solid #ddd;
+                box-shadow: none;
+            }
+
+            .section h2 {
+                page-break-after: avoid;
+                break-after: avoid;
+            }
+
+            .question {
+                page-break-inside: avoid;
+                break-inside: avoid;
+            }
+
+            textarea,
+            input[type="text"],
+            input[type="number"],
+            select {
+                border: none;
+                background: transparent;
+                font-size: 12pt;
+                padding: 5px;
+                min-height: auto;
+            }
+
+            .repeatable-item {
+                page-break-inside: avoid;
+                break-inside: avoid;
+            }
+
+            @page {
+                margin: 2cm;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Introduction Section -->
+    <div class="intro-section">
+        <h1>📝 Hybrid Rebuttal Planner</h1>
+        <p><strong>A structured step-by-step questionnaire for writing conference rebuttals</strong></p>
+        <div id="intro-content">
+            <p>This tool is inspired by <strong>Devi Parikh's guide "How we write rebuttals"</strong> and helps you
+                systematically organize your rebuttal strategy.</p>
+            <p>✅ Track multiple rebuttals<br>
+                ✅ Answer reviewer concerns systematically<br>
+                ✅ Export to PDF, Markdown, or JSON<br>
+                ✅ Auto-save your progress</p>
+            <p><em>All data is stored locally in your browser. Export your work regularly for backup.</em></p>
+        </div>
+        <button id="toggle-intro" class="intro-button">Hide Details ▲</button>
+        <button id="get-started" class="intro-button">Get Started ⬇</button>
+    </div>
+
+    <!-- Status Bar -->
+    <div class="status-bar">
+        <div class="status-info">
+            <div class="questionnaire-controls">
+                <select id="questionnaire-select"></select>
+                <button id="new-questionnaire">+ New</button>
+                <button id="delete-questionnaire" class="delete-button">Delete</button>
+            </div>
+            <div id="progress-display">Progress: 0/0 answered</div>
+        </div>
+        <div class="action-buttons">
+            <button id="save-button">💾 Save</button>
+            <div class="export-dropdown">
+                <button id="export-button" class="export-button">📥 Export ▼</button>
+                <div class="export-dropdown-content">
+                    <a href="#" onclick="exportRebuttal('markdown'); return false;">Export as Markdown</a>
+                    <a href="#" onclick="exportRebuttal('json'); return false;">Export as JSON</a>
+                    <a href="#" onclick="exportRebuttal('pdf'); return false;">Export as PDF</a>
+                </div>
+            </div>
+            <button id="import-button" class="export-button">📤 Import</button>
+        </div>
+    </div>
+    <input type="file" id="import-file-input" accept=".json" style="display: none;">
+
+    <!-- Paper Title -->
+    <div class="paper-title-container">
+        <div class="paper-title-label">Paper Title / Rebuttal Name:</div>
+        <input type="text" id="paper-title" placeholder="Enter your paper title or rebuttal identifier">
+    </div>
+
+    <!-- Progress Bar -->
+    <div class="progress-container">
+        <div class="progress-header">
+            <div class="progress-title">📊 Overall Progress</div>
+            <div class="progress-stats" id="overall-stats">0 / 0 questions answered</div>
+        </div>
+        <div class="overall-progress-bar">
+            <div class="overall-progress-fill" id="overall-progress-fill" style="width: 0%;">
+                <span class="progress-percentage" id="progress-percentage">0%</span>
+            </div>
+        </div>
+        
+        <div class="sections-progress">
+            <div class="sections-progress-title">
+                Section Progress
+                <button class="toggle-sections" id="toggle-sections" onclick="toggleSectionProgress()">Show ▼</button>
+            </div>
+            <div id="sections-progress-list">
+                <!-- Section progress bars will be generated dynamically -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content Container (All sections visible) -->
+    <div id="questionnaire-container">
+        <!-- Sections will be generated dynamically -->
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,114 @@
+{
+  "title": "Hybrid Rebuttal Planner Questionnaire",
+  "description": "A structured step-by-step questionnaire for writing conference rebuttals inspired by Devi Parikh’s guide and Anubhav Shrimal’s Research Paper Planner.",
+  "sections": [
+    {
+      "id": "0",
+      "title": "Logistics & Constraints",
+      "questions": [
+        {"q": "Paper title", "type": "text"},
+        {"q": "Authors (as submitted)", "type": "text"},
+        {"q": "Venue / Conference", "type": "text"},
+        {"q": "Rebuttal length limit (word/character/line)", "type": "text"},
+        {"q": "Deadline (date & time, timezone)", "type": "text"},
+        {"q": "Your name (person filling)", "type": "text"},
+        {"q": "Number of reviewers", "type": "number"},
+        {"q": "Any AC / SPC comments?", "type": "text"},
+        {"q": "General impression of reviews (misunderstandings, strong criticisms, mostly minor, etc.)", "type": "textarea"}
+      ]
+    },
+    {
+      "id": "1",
+      "title": "Extract Strengths & Framing",
+      "questions": [
+        {"q": "For each reviewer, list 2–3 positive or accurate observations they made.", "type": "textarea"},
+        {"q": "What is the single core message you want the Area Chair to take away after reading your rebuttal?", "type": "textarea"},
+        {"q": "List your top 2–3 strongest contributions or evidence (numbers, experiments, novelty, etc.)", "type": "textarea"}
+      ]
+    },
+    {
+      "id": "2",
+      "title": "Decompose Reviewer Criticisms into Atomic Items",
+      "instructions": "Repeat the following block for every individual reviewer comment.",
+      "fields_per_comment": [
+        {"q": "Comment ID (e.g., R1.C1)", "type": "text"},
+        {"q": "Exact reviewer quote (1–2 sentences)", "type": "textarea"},
+        {"q": "Your interpretation of the reviewer’s concern", "type": "textarea"},
+        {"q": "Type of issue", "options": ["Misunderstanding", "Request for experiment", "Clarity issue", "Disagreement", "Other"], "type": "choice"},
+        {"q": "Is the answer already in your paper? (If yes, point to line/figure/table)", "type": "textarea"},
+        {"q": "Is the requested experiment feasible within rebuttal time & rules?", "options": ["Yes", "No", "Partially"], "type": "choice"},
+        {"q": "If infeasible, what alternative evidence can you provide?", "type": "textarea"},
+        {"q": "Concise reply (≤40 words)", "type": "textarea"},
+        {"q": "Expanded reply (1–3 sentences)", "type": "textarea"},
+        {"q": "Would this benefit from numerical/statistical evidence? If yes, specify.", "type": "textarea"}
+      ]
+    },
+    {
+      "id": "3",
+      "title": "Consolidate Overlapping Issues",
+      "instructions": "Merge similar comments across reviewers into unified concerns.",
+      "fields_per_concern": [
+        {"q": "Consolidated Concern ID (e.g., C1)", "type": "text"},
+        {"q": "Reviewers/comments involved", "type": "text"},
+        {"q": "Rephrased summary of concern", "type": "textarea"},
+        {"q": "Concise reply (≤40 words)", "type": "textarea"},
+        {"q": "Expanded support / detail (1–3 sentences)", "type": "textarea"},
+        {"q": "Experiment plan and feasibility", "type": "textarea"},
+        {"q": "Figures/tables to include (if any)", "type": "text"}
+      ]
+    },
+    {
+      "id": "4",
+      "title": "Prioritize & Order Responses",
+      "questions": [
+        {"q": "Rank consolidated concerns in order of importance (1 = highest)", "type": "textarea"},
+        {"q": "List the 2–3 strongest and most convincing responses", "type": "textarea"},
+        {"q": "Choose the tone for the rebuttal", "options": ["Polite/Collaborative", "Firm/Assertive", "Neutral/Informative"], "type": "choice"}
+      ]
+    },
+    {
+      "id": "5",
+      "title": "Draft Opening & Structure",
+      "questions": [
+        {"q": "Write one sentence thanking reviewers.", "type": "textarea"},
+        {"q": "Summarize the main positive feedback / strengths of your paper (1–2 sentences).", "type": "textarea"},
+        {"q": "State your intent to address key concerns (1 sentence).", "type": "textarea"},
+        {"q": "List which consolidated concerns you’ll respond to, in priority order.", "type": "textarea"}
+      ]
+    },
+    {
+      "id": "6",
+      "title": "Final Assembly (Rebuttal Text)",
+      "instructions": "Assemble the full rebuttal body here.",
+      "questions": [
+        {"q": "Opening paragraph (paste from above)", "type": "textarea"},
+        {"q": "Body — for each concern, paste: (a) short paraphrased concern, (b) concise reply, (c) supporting bullet or pointer", "type": "textarea"},
+        {"q": "Concluding line (optional)", "type": "textarea"}
+      ]
+    },
+    {
+      "id": "7",
+      "title": "Confidential / AC-only Notes",
+      "questions": [
+        {"q": "Reviewer & quote", "type": "textarea"},
+        {"q": "Why this appears unfair / erroneous", "type": "textarea"},
+        {"q": "Suggested short note to AC (1–2 sentences)", "type": "textarea"}
+      ]
+    },
+    {
+      "id": "8",
+      "title": "Quality Check",
+      "checklist": [
+        "All reviewer comments itemized and answered",
+        "Common concerns consolidated",
+        "Concise replies (≤40 words) for each concern",
+        "Pointers to lines/tables in paper",
+        "Numerical/statistical evidence added where possible",
+        "Feasible experiments listed or alternatives provided",
+        "No promises without evidence",
+        "Positive, consistent tone maintained",
+        "Rebuttal length within limit"
+      ]
+    }
+  ]
+}
